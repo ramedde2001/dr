@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8">
+import os
+files = [f for f in os.listdir() if os.path.isfile(f)]
+indexf=open("html\index.html","a",encoding="utf_8")
+indexf.write('<!DOCTYPE html>\n<html dir="rtl" lang="ar">\n<head>\n<meta charset="utf-8">\n')
+for f in files:
+    
+    fil=open(f,"r",encoding="utf_8")
+    text=fil.read()
+    newtext='<!DOCTYPE html>\n<html dir="rtl" lang="ar">\n<head>\n<meta charset="utf-8">\n'+text+"\n</html>"
+
+    index='<a href='+f.split('.')[0]+'.html>'+f+'</a>\n'
+    
+    indexf.write(index)
+    newhtml=open("html/"+f.split('.')[0]+'.html',"a",encoding="utf_8")
+    newhtml.write(newtext)
+                 
+    
+
+indexf.write("\n</html>")
+indexf.close()
+    
+
+
+
+</html>
